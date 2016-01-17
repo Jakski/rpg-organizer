@@ -13,8 +13,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_b_add_event_clicked()
 {
-    ui->tableWidget->insertRow(ui->tableWidget->rowCount());
-    ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1, 0, new QTableWidgetItem("asdsa"));
+    ui->t_events->insertRow(ui->t_events->rowCount());
+    ui->t_events->setItem(ui->t_events->rowCount() - 1, 0, new QTableWidgetItem(ui->e_event_title->text()));
+    ui->t_events->setItem(ui->t_events->rowCount() - 1, 1, new QTableWidgetItem(ui->s_exp->text()));
+    ui->e_event_title->clear();
+    ui->s_exp->setValue(0);
 }
