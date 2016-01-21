@@ -8,13 +8,17 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+CONFIG += c++11
+
 TARGET = rpg-organizer
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    csv.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    csv.h
 
 FORMS    += mainwindow.ui
