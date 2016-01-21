@@ -18,8 +18,6 @@ public:
     virtual ~CSV();
 private:
     QFile mFile;
-    QStringList load();
-    void save();
 };
 
 #endif // CSV_H
