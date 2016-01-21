@@ -47,8 +47,7 @@ void CSV::insertRow(QStringList values) {
 }
 
 int CSV::getRowsNum() {
-    // adding 1 probably, because last endline is ignored
-    int num = QString(mFile.readAll()).count("\n") + 1;
+    int num = QString(mFile.readAll()).count("\n");
     mFile.reset();
     return num;
 }

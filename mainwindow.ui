@@ -37,7 +37,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -82,8 +82,8 @@
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>10</y>
+        <x>230</x>
+        <y>100</y>
         <width>331</width>
         <height>311</height>
        </rect>
@@ -91,29 +91,6 @@
       <property name="title">
        <string>New Event</string>
       </property>
-      <widget class="QTextEdit" name="e_event_desc">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>190</y>
-         <width>311</width>
-         <height>81</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="l_event_desc">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>170</y>
-         <width>71</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Description</string>
-       </property>
-      </widget>
       <widget class="QSpinBox" name="s_exp">
        <property name="geometry">
         <rect>
@@ -163,8 +140,8 @@
       <widget class="QPushButton" name="b_add_event">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>280</y>
+         <x>10</x>
+         <y>160</y>
          <width>81</width>
          <height>22</height>
         </rect>
@@ -173,19 +150,6 @@
         <string>Add Event</string>
        </property>
       </widget>
-     </widget>
-     <widget class="QLabel" name="l_event_disp_desc">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>330</y>
-        <width>331</width>
-        <height>201</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
