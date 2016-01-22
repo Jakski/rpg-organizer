@@ -35,7 +35,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    void showExp();
+    int getLevel(int exp);
 };
 
 #endif // MAINWINDOW_H

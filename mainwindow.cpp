@@ -7,7 +7,14 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->on_tabWidget_currentChanged(0);
-    this->showExp();
+    // load level and experience
+    CSV status("status.txt");
+    if (status.getRow(0).size() < 1) {
+        status.insertRow(QStringList("0"));
+    }
+    int exp = status.getRow(0)[0].toInt();
+    ui->lcd_level->display(this->getLevel(exp));
+    ui->pro_level->setValue();
 }
 
 MainWindow::~MainWindow()
@@ -84,34 +91,15 @@ void MainWindow::on_pushButton_2_clicked()
 {
     int rowNum = ui->t_events->currentRow();
     if (rowNum != -1) {
-        // add to achievments
         CSV events("achieve.txt");
         events.insertRow(QStringList(ui->t_events->item(rowNum, 0)->text()));
-        // retrieve current level and experience
         CSV status("status.txt");
-        if (status.getRow(0).size() < 1) {
-            // file not created. init with 0 experience
-            status.insertRow(QStringList("0"));
-        }
-        // get saved experience
         int exp = status.getRow(0)[0].toInt();
         status.clear();
-        // retrieve exp from selected event
-        auto nExp = ui->t_events->item(rowNum, 1)->text();
-        exp += nExp.toInt();
-        // experience needed to pass level is calculated from formula:
-        // 10**level + 10**(level-1) + ... + 10**1
-        int level = 0;
-        int tempExp = exp;
-        while (tempExp >= 0) {
-            level++;
-            tempExp -= pow(10, level);
-        }
-        // save changes
+        exp += ui->t_events->item(rowNum, 1)->text().toInt();
         status.insertRow(QStringList(QString::number(exp)));
-        // use signal to delete selected item from table of events
         this->on_b_event_del_clicked();
-        this->showExp();
+        ui->lcd_level->display(this->getLevel(exp));
     } else {
         ui->l_event_dialog->setText("No event selected! Cannot finish.");
     }
@@ -121,19 +109,11 @@ void MainWindow::on_pushButton_clicked()
 {
     CSV achieved("achieve.txt");
     achieved.clear();
-    // refresh
     this->on_tabWidget_currentChanged(2);
 }
 
-void MainWindow::showExp()
+int MainWindow::getLevel(int exp)
 {
-    CSV status("status.txt");
-    if (status.getRow(0).size() < 1) {
-        // file not created. init with 0 experience
-        status.insertRow(QStringList("0"));
-    }
-    // get saved experience
-    int exp = status.getRow(0)[0].toInt();
     // experience needed to pass level is calculated from formula:
     // 10**level + 10**(level-1) + ... + 10**1
     int level = 0;
@@ -142,6 +122,5 @@ void MainWindow::showExp()
         level++;
         tempExp -= pow(10, level);
     }
-    // show changes on UI
-    ui->lcd_level->display(level);
+    return level;
 }
