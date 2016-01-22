@@ -14,7 +14,6 @@ MainWindow::MainWindow(QWidget *parent) :
     }
     int exp = status.getRow(0)[0].toInt();
     ui->lcd_level->display(this->getLevel(exp));
-    ui->pro_level->setValue();
 }
 
 MainWindow::~MainWindow()
