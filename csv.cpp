@@ -27,10 +27,8 @@ void CSV::deleteRow(int n) {
     // replace old file with updated one
     QString fileName = mFile.fileName();
     mFile.remove();
-    mFile.close();
     tmp.rename(fileName);
     tmp.close();
-    mFile.setFileName(fileName);
     mFile.open(QIODevice::ReadWrite);
 }
 
@@ -50,6 +48,11 @@ int CSV::getRowsNum() {
     int num = QString(mFile.readAll()).count("\n");
     mFile.reset();
     return num;
+}
+
+void CSV::clear() {
+    mFile.remove();
+    mFile.open(QIODevice::ReadWrite);
 }
 
 CSV::~CSV() {

@@ -15,6 +15,7 @@ public:
     void deleteRow(int n);
     void insertRow(QStringList values);
     int getRowsNum();
+    void clear();
     virtual ~CSV();
 private:
     QFile mFile;
