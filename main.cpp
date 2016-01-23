@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
     //csv.insertRow(QStringList("ssfs124f"));
     QApplication a(argc, argv);
     MainWindow w;
+    w.setWindowTitle("RPG Organizer");
     w.show();
 
     return a.exec();
