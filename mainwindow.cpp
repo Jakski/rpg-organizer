@@ -115,7 +115,7 @@ void MainWindow::on_b_event_del_clicked()
         events.deleteRow(rowNum);
         ui->l_event_dialog->clear();
     } else {
-        ui->l_event_dialog->setText("No event selected! Cannot delete.");
+        ui->l_event_dialog->setText("No event selected!");
     }
 }
 
@@ -140,7 +140,7 @@ void MainWindow::on_pushButton_2_clicked()
         ui->lcd_level->display(this->getLevel(exp));
         ui->lcd_skill->display(skillPoints);
     } else {
-        ui->l_event_dialog->setText("No event selected! Cannot finish.");
+        ui->l_event_dialog->setText("No event selected!");
     }
 }
 
@@ -176,7 +176,7 @@ void MainWindow::on_pushButton_4_clicked()
         skills.deleteRow(rowNum);
         ui->l_skill_dialog->clear();
     } else {
-        ui->l_skill_dialog->setText("No skill selected! Cannot delete.");
+        ui->l_skill_dialog->setText("No skill selected!");
     }
 }
 
@@ -204,7 +204,7 @@ void MainWindow::on_pushButton_3_clicked()
             ui->l_skill_dialog->setText("Not enough skill points!");
         }
     } else {
-        ui->l_skill_dialog->setText("No skill selected! Cannot learn.");
+        ui->l_skill_dialog->setText("No skill selected!");
     }
 }
 
