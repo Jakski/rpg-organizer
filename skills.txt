@@ -1,3 +1,0 @@
-own m$;1
-join redhat;10
-finish college;3
